@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ripplechan.mapper.AccountMapper">
+
+    <resultMap id="BaseResultMap" type="com.ripplechan.entity.Account">
+        <id column="ACCOUNT_ID" property="accountId" jdbcType="DECIMAL" />
+        <id column="ACCOUNT_BUYER_LEVEL" property="accountBuyerLevel" jdbcType="DECIMAL" />
+        <id column="ACCOUNT_SELLER_LEVEL" property="accountSellerLevel" jdbcType="DECIMAL" />
+        <result column="ACCOUNT_COUNTRY" property="accountCountry" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="myQuery" resultType="java.util.Map">
+        select 1 as "id"
+    </select>
+
+    <select id="queryAll" resultMap="BaseResultMap">
+        SELECT * FROM KYLIN_ACCOUNT
+    </select>
+
+    <select id="page" resultMap="BaseResultMap">
+        SELECT * FROM KYLIN_ACCOUNT LIMIT 1 OFFSET 1
+    </select>
+
+
+</mapper>
